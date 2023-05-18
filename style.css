@@ -1,0 +1,74 @@
+@keyframes reveal {
+  0% {opacity: 1;}
+  50% {opacity: 1;}
+  51% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+#board-wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  margin-top: 20px;
+  border: 1px black solid;
+}
+
+button {
+  padding: 2px 5px;
+  background-color: bisque;
+  border-style: groove;
+}
+
+#start_btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#timer_wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-10%, -100%);
+  padding: 2px;
+  border-radius: 5px 5px 0 0;
+}
+
+.status_window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: black 3px 3px 6px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px black solid;
+  margin: 1px;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  opacity: 1;
+}
+
+.card.flipped::after,.card.matched::after {
+  animation-name: reveal;
+  animation-duration: .5s;
+  opacity: 0;
+}
